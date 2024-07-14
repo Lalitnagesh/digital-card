@@ -9,7 +9,7 @@
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('admin.logout') }}" class="nav-link">Logout</a>
+        <a href="{{ route('admin.logout') }}" class="nav-link delete-item">Logout</a>
       </li>
     </ul>
 

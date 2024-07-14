@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
+Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
     Route::match(['get', 'post'], 'login', [AdminController::class, 'login'])->name('login');
-    Route::group(['middleware' => ['admin']], function(){
+    Route::group(['middleware' => ['admin']], function() {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+        Route::get('/update-password', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
     });
 });
+
 
