@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Dotenv\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -48,5 +49,13 @@ class AdminController extends Controller
         return view('admin.update-password');
     }
 
+    public function checkCurrentPassword(Request $request){
+        return $request->all();
+        if (Hash::check($request->current_password, Auth::guard('admin')->user()->password)) {
+            return "true";
+        }else{
+            return "false";
+        }
 
+    }
 }

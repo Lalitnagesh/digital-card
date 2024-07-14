@@ -20,6 +20,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
         Route::get('/update-password', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
+        Route::post('/check-current-pasword', [AdminController::class, 'checkCurrentPassword'])->name('admin.checkCurrentPassword');
     });
 });
 

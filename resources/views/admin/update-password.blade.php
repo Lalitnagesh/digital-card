@@ -36,19 +36,19 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="admin_email">Email address</label>
-                                        <input type="email" name="admin_email" class="form-control readonly" placeholder="Enter email" value="{{ Auth::guard('admin')->user()->email }}" readonly="">
+                                        <input type="email" name="admin_email" id="admin_email" class="form-control readonly" placeholder="Enter email" value="{{ Auth::guard('admin')->user()->email }}" readonly="">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Current Password</label>
-                                        <input type="password" name="current_password" class="form-control" placeholder="Current Password">
+                                        <input type="password" name="current_password" id="current_password" class="form-control" placeholder="Current Password"><span id="verifiedPassword"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="">New Password</label>
-                                        <input type="password" name="new_password" class="form-control" placeholder="New Password">
+                                        <input type="password" name="new_password" id="new_password" class="form-control" placeholder="New Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Confirm Password</label>
-                                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password">
+                                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <div class="card-footer">
