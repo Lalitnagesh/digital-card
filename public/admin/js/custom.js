@@ -14,7 +14,7 @@ $(document).ready(function(){
                 if(response == "false"){
                     $('#verifiedPassword').html('Corrent Password is Incorrect')
                 }else if(response == "true"){
-                    $('#verifiedPassword').html('Corrent Password is Correct')
+                    $('#verifiedPassword').val('Corrent Password is Correct')
                 }
             },error:function () {
                 alert('Error');

@@ -31,7 +31,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Update Password</h3>
                             </div>
-                            <form action="">
+                            <form action="{{ route('admin.changePassword') }}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
