@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Dotenv\Validator;
@@ -10,11 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('admin.dashboard');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         if ($request->isMethod('post')) {
             $data = $request->all();
 
@@ -31,7 +34,7 @@ class AdminController extends Controller
 
             $this->validate($request, $rules, $customMessages);
 
-            if(Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])){
+            if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
                 return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->back()->with('error', 'Invalid Email or Password');
@@ -40,25 +43,65 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::guard('admin')->logout();
         return view('admin.login');
     }
 
-    public function changePassword(){
+    public function changePassword()
+    {
         return view('admin.update-password');
     }
 
-    public function checkCurrentPassword(Request $request){
+    public function checkCurrentPassword(Request $request)
+    {
         if (Hash::check($request->current_password, Auth::guard('admin')->user()->password)) {
             return "true";
-        }else{
+        } else {
             return "false";
         }
-
     }
 
-    public function updatePassword(){
-        
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::guard('admin')->user();
+
+        if (Hash::check($request->current_password, $user->password)) {
+            $data = $request->all();
+
+            if ($data['new_password'] == $data['confirm_password']) {
+                $user->password = Hash::make($data['new_password']);
+                $user->save();
+
+                return response()->json(['success' => 'Password updated successfully.']);
+            } else {
+                return response()->json(['error' => 'New password and confirm password do not match.']);
+            }
+        } else {
+            return response()->json(['error' => 'Current password is incorrect.']);
+        }
+    }
+
+    public function updatedetails(Request $request)
+    {
+
+        if ($request->isMethod('post')) {
+            $user = Auth::guard('admin')->user();
+            $user->name = $request->admin_name;
+            $user->email = $request->admin_email;
+            $user->mobile = $request->admin_number;
+            $user->save();
+
+            // Image Upload
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $fileName = time() . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('images', $fileName, 'public/admin/images');
+                $user->image = $path;
+                return $user->save();
+            }
+        }
+        return view('admin.details');
     }
 }

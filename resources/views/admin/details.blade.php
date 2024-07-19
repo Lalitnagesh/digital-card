@@ -31,24 +31,24 @@
                             <div class="card-header">
                                 <h3 class="card-title">Update Password</h3>
                             </div>
-                            <form action="{{ route('admin.updatePassword') }}" method="POST">
+                            <form action="{{ route('admin.updatedetails') }}" enctype="multipart/form-data" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <label for="admin_email">Name</label>
+                                        <input type="text" name="admin_name" class="form-control" placeholder="Enter Name" value="{{ Auth::guard('admin')->user()->name }}">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="admin_email">Email address</label>
-                                        <input type="email" name="admin_email" id="admin_email" class="form-control readonly" placeholder="Enter email" value="{{ Auth::guard('admin')->user()->email }}" readonly="">
+                                        <input type="email" name="admin_email" id="admin_email" class="form-control" placeholder="Enter email" value="{{ Auth::guard('admin')->user()->email }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Current Password</label>
-                                        <input type="password" name="current_password" id="current_password" class="form-control" placeholder="Current Password"><span id="verifiedPassword"></span>
+                                        <label for="admin_email">Contact Number</label>
+                                        <input type="number" name="admin_number" class="form-control" placeholder="Enter Number" value="{{ Auth::guard('admin')->user()->mobile }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">New Password</label>
-                                        <input type="password" name="new_password" id="new_password" class="form-control" placeholder="New Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Confirm Password</label>
-                                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+                                        <label for="admin_email">Profile Image</label>
+                                        <input type="file" name="image" class="form-control" accept=".jpg, .jpeg, .png">
                                     </div>
                                 </div>
                                 <div class="card-footer">
