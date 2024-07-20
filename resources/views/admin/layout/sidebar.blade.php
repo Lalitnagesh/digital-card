@@ -36,8 +36,21 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                    @if (Session::get('page') == 'dashboard')
+                        @php
+                            $active = "active";
+                        @endphp
+                    @else
+                        @php
+                            $active = "";
+                        @endphp
+                    @endif
+                <li class="nav-item ">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ $active }}">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -48,7 +61,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.changePassword') }}" class="nav-link active">
+                            <a href="{{ route('admin.changePassword') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Update Admin Password</p>
                             </a>

@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Dotenv\Validator;
 use Illuminate\Support\Facades\Hash;
+use Session;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
+        Session::put('page', 'dashboard');
         return view('admin.dashboard');
     }
 
@@ -88,6 +90,7 @@ class AdminController extends Controller
 
         if ($request->isMethod('post')) {
             $user = Auth::guard('admin')->user();
+
             $user->name = $request->admin_name;
             $user->email = $request->admin_email;
             $user->mobile = $request->admin_number;
@@ -97,9 +100,9 @@ class AdminController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $fileName = time() . '.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('images', $fileName, 'public/admin/images');
+                $path = $image->storeAs('images', $fileName, 'admin_images'); // Use 'admin_images' disk
                 $user->image = $path;
-                return $user->save();
+                $user->save();
             }
         }
         return view('admin.details');

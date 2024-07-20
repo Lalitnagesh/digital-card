@@ -50,6 +50,10 @@
                                         <label for="admin_email">Profile Image</label>
                                         <input type="file" name="image" class="form-control" accept=".jpg, .jpeg, .png">
                                     </div>
+                                    {{-- @dd(Auth::guard('admin')->user()) --}}
+                                    <div>
+                                        <img src="{{ asset('admin/images/'.Auth::guard('admin')->user()->image) }}" alt="Admin Image">
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
