@@ -1,5 +1,5 @@
+// Check Admin password correct or not
 $(document).ready(function () {
-    // Check Admin password correct or not
     $('#current_password').keyup(function () {
         var current_password = $('#current_password').val();
 
@@ -23,3 +23,5 @@ $(document).ready(function () {
         });
     });
 });
+
+

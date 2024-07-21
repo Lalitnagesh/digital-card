@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Dotenv\Validator;
 use Illuminate\Support\Facades\Hash;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -53,6 +53,7 @@ class AdminController extends Controller
 
     public function changePassword()
     {
+        Session::put('page', 'change-password');
         return view('admin.update-password');
     }
 
@@ -87,7 +88,7 @@ class AdminController extends Controller
 
     public function updatedetails(Request $request)
     {
-
+        Session::put('page', 'update-details');
         if ($request->isMethod('post')) {
             $user = Auth::guard('admin')->user();
 
