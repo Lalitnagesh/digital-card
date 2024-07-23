@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/css/adminlte.min.css') }}">
+  {{-- For tabel --}}
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -60,5 +61,16 @@
 <script src="{{ asset('admin/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('admin/js/pages/dashboard2.js') }}"></script>
+
+{{-- Table plugins --}}
+<script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+      $("#cmsPages").DataTable();
+    })
+  </script>
 </body>
 </html>
