@@ -38,11 +38,11 @@
                 data-accordion="false">
                 @if (Session::get('page') == 'dashboard')
                     @php
-                        $active = "active";
+                        $active = 'active';
                     @endphp
-                    @else
+                @else
                     @php
-                        $active = "";
+                        $active = '';
                     @endphp
                 @endif
                 <li class="nav-item ">
@@ -54,11 +54,11 @@
                 <li class="nav-item menu-open">
                     @if (Session::get('page') == 'change-password' || Session::get('page') == 'update-details')
                         @php
-                            $active = "active";
+                            $active = 'active';
                         @endphp
-                        @else
+                    @else
                         @php
-                            $active = "";
+                            $active = '';
                         @endphp
                     @endif
                     <a href="#" class="nav-link {{ $active }}">
@@ -71,11 +71,11 @@
                     <ul class="nav nav-treeview">
                         @if (Session::get('page') == 'change-password')
                             @php
-                                $active = "active";
+                                $active = 'active';
                             @endphp
-                            @else
+                        @else
                             @php
-                                $active = "";
+                                $active = '';
                             @endphp
                         @endif
                         <li class="nav-item">
@@ -86,11 +86,11 @@
                         </li>
                         @if (Session::get('page') == 'update-details')
                             @php
-                                $active = "active";
+                                $active = 'active';
                             @endphp
-                            @else
+                        @else
                             @php
-                                $active = "";
+                                $active = '';
                             @endphp
                         @endif
                         <li class="nav-item">
@@ -101,13 +101,20 @@
                         </li>
                     </ul>
                 </li>
+                @if (Session::get('page') == 'cms-pages')
+                    @php
+                        $active = 'active';
+                    @endphp
+                @else
+                    @php
+                        $active = '';
+                    @endphp
+                @endif
                 <li class="nav-item">
-                    <a href="{{ route('admin.cmsPages') }}" class="nav-link">
+                    <a href="{{ route('admin.cmsPages') }}" class="nav-link {{ $active }}">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Cms Pages
-                            {{-- <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span> --}}
                         </p>
                     </a>
                 </li>

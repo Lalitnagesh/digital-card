@@ -28,8 +28,9 @@
                 <div class="row">
                     <div class="col-md-12 mx-auto">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">CMS Pages</h3>
+                                <button class="float-right">Button <i class="fa fa-plus"></i></button>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -48,7 +49,7 @@
                                             <tr>
                                                 <td>{{ @$data->id }}</td>
                                                 <td>{{ @$data->title }}</td>
-                                                {{-- <td>{{ @$data->url }}</td> --}}
+                                                <td>{{ @$data->url }}</td>
                                                 <td>{{ @$data->created_at }}</td>
                                                 <td>
                                                     @if ($data->status == 1)
@@ -68,12 +69,10 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
