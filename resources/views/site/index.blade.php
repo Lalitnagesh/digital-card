@@ -486,7 +486,7 @@
                             <a href="">Home</a>
                             <a href="">Cookies</a>
                             <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="{{ route('login') }}">Admin Login</a>
                         </div>
                     </div>
                 </div>

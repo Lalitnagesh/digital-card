@@ -121,7 +121,7 @@
                         </div>
                         <div class="ms-3">
                             <h5 class="text-primary">Office</h5>
-                            <p class="mb-0">Bhopal, Madhyapradesh, INDIA</p>
+                            <p class="mb-0"></p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">
@@ -203,7 +203,6 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bhopal, Madhyapradesh, INDIA</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7489429117</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                     <div class="d-flex pt-2">
