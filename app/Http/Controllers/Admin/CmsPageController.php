@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\CmsPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Session;
 
 class CmsPageController extends Controller
@@ -17,6 +18,12 @@ class CmsPageController extends Controller
         Session::put('page', 'cms-pages');
         $cmsPageData = CmsPage::get();
         return view('admin.cms-page.index', compact('cmsPageData'));
+    }
+    public function leads()
+    {
+        Session::put('page', 'leads');
+        $leads = Lead::get();
+        return view('admin.leads.index', compact('leads'));
     }
 
     /**
