@@ -14,7 +14,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
+                <a href="javascript:void(0);" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
             </div>
         </div>
 
@@ -36,32 +36,14 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                @if (Session::get('page') == 'dashboard')
-                    @php
-                        $active = 'active';
-                    @endphp
-                @else
-                    @php
-                        $active = '';
-                    @endphp
-                @endif
-                <li class="nav-item ">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ $active }}">
+                <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ activeClassIfRoutes(['admin.dashboard'], 'active') }}">
                         <i class="fas fa-th nav-icon"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
-                    @if (Session::get('page') == 'change-password' || Session::get('page') == 'update-details')
-                        @php
-                            $active = 'active';
-                        @endphp
-                    @else
-                        @php
-                            $active = '';
-                        @endphp
-                    @endif
-                    <a href="#" class="nav-link {{ $active }}">
+                <li class="nav-item {{ activeClassIfRoutes(['admin.changePassword', 'admin.updatedetails'], 'menu-open') }}">
+                    <a href="javascript:void(0);" class="nav-link {{ activeClassIfRoutes(['admin.changePassword', 'admin.updatedetails'], 'active') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Settings
@@ -69,66 +51,30 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @if (Session::get('page') == 'change-password')
-                            @php
-                                $active = 'active';
-                            @endphp
-                        @else
-                            @php
-                                $active = '';
-                            @endphp
-                        @endif
                         <li class="nav-item">
-                            <a href="{{ route('admin.changePassword') }}" class="nav-link {{ $active }}">
+                            <a href="{{ route('admin.changePassword') }}" class="nav-link {{ activeClassIfRoutes(['admin.changePassword'], 'active') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Change Password</p>
                             </a>
                         </li>
-                        @if (Session::get('page') == 'update-details')
-                            @php
-                                $active = 'active';
-                            @endphp
-                        @else
-                            @php
-                                $active = '';
-                            @endphp
-                        @endif
                         <li class="nav-item">
-                            <a href="{{ route('admin.updatedetails') }}" class="nav-link {{ $active }}">
+                            <a href="{{ route('admin.updatedetails') }}" class="nav-link {{ activeClassIfRoutes(['admin.updatedetails'], 'active') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Update Admin Details</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                @if (Session::get('page') == 'cms-pages')
-                    @php
-                        $active = 'active';
-                    @endphp
-                @else
-                    @php
-                        $active = '';
-                    @endphp
-                @endif
                 <li class="nav-item">
-                    <a href="{{ route('admin.cmsPages') }}" class="nav-link {{ $active }}">
+                    <a href="{{ route('admin.cmsPages') }}" class="nav-link {{ activeClassIfRoutes(['admin.cmsPages'], 'active') }}">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Cms Pages
                         </p>
                     </a>
                 </li>
-                @if (Session::get('page') == 'leads')
-                    @php
-                        $active = 'active';
-                    @endphp
-                @else
-                    @php
-                        $active = '';
-                    @endphp
-                @endif
                 <li class="nav-item">
-                    <a href="{{ route('admin.leads') }}" class="nav-link {{ $active }}">
+                    <a href="{{ route('admin.leads') }}" class="nav-link {{ activeClassIfRoutes(['admin.leads'], 'active') }}">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Leads
