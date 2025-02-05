@@ -127,7 +127,7 @@ div.dataTables_wrapper div.dataTables_length select {
   width: auto;
   display: inline-block;
 }
-div.dataTables_wrapper div.dataTables_filter {
+div.dataTables_wrapper div   {
   text-align: right;
 }
 div.dataTables_wrapper div.dataTables_filter label {

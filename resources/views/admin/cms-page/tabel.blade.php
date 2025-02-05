@@ -20,7 +20,7 @@
                         <a href="javascript:void(0)" class="cmsPageStatus"
                            id="page-{{ $data->id }}" page_id="{{ $data->id }}">
                            <i class="fas fa-toggle-on" status="Active"></i>
-                        </a>
+                        </a>    
                     @else
                         <a href="javascript:void(0)" class="cmsPageStatus"
                            id="page-{{ $data->id }}" page_id="{{ $data->id }}">

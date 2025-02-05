@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 @section('content')
     <style>
-        .readonly{
+        .readonly {
             background-color: #7d7a7a !important;
         }
     </style>
@@ -26,29 +26,43 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6 mx-auto">
+                    <div class="col-md-10 mx-auto">
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Update Password</h3>
                             </div>
-                            <form action="{{ route('admin.updatePassword') }}" method="POST">
+                            <form action="{{ route('admin.cms-page.store') }}" method="POST">
                                 @csrf
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="admin_email">Email address</label>
-                                        <input type="email" name="admin_email" id="admin_email" class="form-control readonly" placeholder="Enter email" value="{{ Auth::guard('admin')->user()->email }}" readonly="">
+                                <div class="card-body row">
+                                    <div class="form-group col-6">
+                                        <label for="title">Title</label>
+                                        <input type="title" name="title" id="title" class="form-control"
+                                            placeholder="Enter title">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Current Password</label>
-                                        <input type="password" name="current_password" id="current_password" class="form-control" placeholder="Current Password"><span id="verifiedPassword"></span>
+                                    <div class="form-group col-6">
+                                        <label for="url">Url</label>
+                                        <input type="text" name="url" id="url" class="form-control"
+                                            placeholder="Enter url">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">New Password</label>
-                                        <input type="password" name="new_password" id="new_password" class="form-control" placeholder="New Password">
+                                    <div class="form-group col-6">
+                                        <label for="meta_title">Meta Title</label>
+                                        <input type="meta_title" name="meta_title" id="meta_title" class="form-control"
+                                            placeholder="Enter meta title">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Confirm Password</label>
-                                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+                                    <div class="form-group col-6">
+                                        <label for="meta_keyword">Meta Keyword</label>
+                                        <input type="meta_keyword" name="meta_keyword" id="meta_keyword"
+                                            class="form-control" placeholder="Enter meta title">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="meta_description">Meta Description</label>
+                                        <textarea name="meta_description" id="meta_description" cols="5" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group col-12 mx-1">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="status" value="1">
+                                            <label class="custom-control-label" for="customSwitch1">Status</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">

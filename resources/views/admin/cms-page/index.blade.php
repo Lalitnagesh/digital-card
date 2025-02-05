@@ -29,8 +29,12 @@
                     <div class="col-md-12 mx-auto">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title">CMS Pages</h3>
-                                <button class="float-right">Button <i class="fa fa-plus"></i></button>
+                                <div class="col-6">
+                                    <h3 class="card-title">CMS Pages</h3>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <a href="{{ route('admin.cms-page.create') }}" class="btn btn-primary btn-sm">Add <i class="fa fa-plus"></i></a>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

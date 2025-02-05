@@ -19,9 +19,9 @@ class CmsPageController extends Controller
         $cmsPageData = CmsPage::get();
         return view('admin.cms-page.index', compact('cmsPageData'));
     }
+
     public function leads()
     {
-        Session::put('page', 'leads');
         $leads = Lead::get();
         return view('admin.leads.index', compact('leads'));
     }
@@ -31,7 +31,7 @@ class CmsPageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cms-page.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class CmsPageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return $request->all();
     }
 
     /**

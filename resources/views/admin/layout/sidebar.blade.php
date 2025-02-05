@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.updatedetails') }}" class="nav-link {{ activeClassIfRoutes(['admin.updatedetails'], 'active') }}">
+                            <a href="{{ route('admin.updateDetails') }}" class="nav-link {{ activeClassIfRoutes(['admin.updateDetails'], 'active') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Update Admin Details</p>
                             </a>
@@ -66,7 +66,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.cmsPages') }}" class="nav-link {{ activeClassIfRoutes(['admin.cmsPages'], 'active') }}">
+                    <a href="{{ route('admin.cms-page.index') }}" class="nav-link {{ activeClassIfRoutes(['admin.cms-page.index'], 'active') }}">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Cms Pages
