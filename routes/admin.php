@@ -24,8 +24,13 @@ Route::prefix('admin')->group(function () {
             Route::post('/store', [CmsPageController::class, 'store'])->name('store');
         });
 
-        // Leads Page
-        Route::get('/leads', [CmsPageController::class, 'leads'])->name('leads');
+
+        // Lead Management
+        Route::prefix('leads')->as('leads.')->group(function () {
+            Route::get('/', [CmsPageController::class, 'index'])->name('index');
+            Route::get('/create', [CmsPageController::class, 'create'])->name('create');
+            Route::post('/store', [CmsPageController::class, 'store'])->name('store');
+        });
 
         // CMS Page Status Update
         Route::post('/update-cms-pages-status', [CmsPageController::class, 'updateCmsPagesStatus'])->name('updateCmsPagesStatus');

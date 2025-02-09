@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">CMS Pages</h1>
+                        <h1 class="m-0">Leads</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,12 @@
                     <div class="col-md-12 mx-auto">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title">CMS Pages</h3>
+                                <div class="col-6">
+                                    <h3 class="card-title">Leads</h3>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <a href="{{ route('admin.leads.create') }}" class="btn btn-primary btn-sm">Add <i class="fa fa-plus"></i></a>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

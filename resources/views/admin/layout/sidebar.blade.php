@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.leads') }}" class="nav-link {{ activeClassIfRoutes(['admin.leads'], 'active') }}">
+                    <a href="{{ route('admin.leads.index') }}" class="nav-link {{ activeClassIfRoutes(['admin.leads.index'], 'active') }}">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Leads
